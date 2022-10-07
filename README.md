@@ -11,11 +11,11 @@ This code was originally written by Namhee Kim, and has been developed with the 
 **Developed using Python 3.7**  
 
 **Some packages must be installed:**  
-pyboolnet <https://github.com/hklarner/pyboolnet>  
-Networkx  
-NumPy  
-Pandas  
-Matplotlib  
+    pyboolnet <https://github.com/hklarner/pyboolnet>  
+    Networkx  
+    NumPy  
+    Pandas  
+    Matplotlib  
 
 
 ## 2. Implementation
