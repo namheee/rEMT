@@ -1,6 +1,5 @@
 # rEMT
-This package implements methods to analyze and control of Boolean networks.
-
+This package implements methods to analyze and control of Boolean networks.  
 This code was originally written by Namhee Kim, and has been developed with the help of many others.
 
 **Reference:**
@@ -11,7 +10,7 @@ This code was originally written by Namhee Kim, and has been developed with the 
 **Developed using Python 3.7**  
 
 **Some packages must be installed:**  
-pyboolnet <https://github.com/hklarner/pyboolnet>  
+> pyboolnet <https://github.com/hklarner/pyboolnet>  
 Networkx  
 NumPy  
 Pandas  
