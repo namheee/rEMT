@@ -35,7 +35,7 @@ def compute_networkStability(attrs_dict, graph, nodeList):
         network_stability['att_stability'] += -1*attrs_dict[idx]['perc']*np.log(attrs_dict[idx]['perc'])
         
         # 2. frustration of network state
-        # Please refer to our paper.
+        # ref. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
         state01 = value['attractors']
         frustration_dict[idx]['frustration'] = 0
         for state in state01:

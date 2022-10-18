@@ -117,6 +117,8 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
         
 
         # compute frustrated_edge_ratio of each node
+        # Please check if regulatory relationship matirx, J, has the same sign information as A.
+        # ref. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated."
         def computeF_inout(node):
             allF_dict = defaultdict(list)
             if node in resN:
