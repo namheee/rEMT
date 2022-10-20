@@ -2,7 +2,7 @@
 """
 Created on Tue Jun 14 14:46:54 2022
 
-@author: namheekim
+@author: Namhee Kim
 """
 
 from sklearn.metrics.pairwise import cosine_similarity

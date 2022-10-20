@@ -17,7 +17,7 @@ from pyboolnet.prime_implicants import create_constants, percolate, find_constan
 
 # ================================================================================
 # compute 'molecular state ambiguity (delta r)'
-# by calculating the ratio of frustrated_edge from perturbed(new) truth table
+# by calculating the ratio of frustrated_edge from (perturbed) truth table
 # ================================================================================
 
 # Function for splitting graph
@@ -26,13 +26,13 @@ def splitG(primes, fixed_nodes):
     fix_subgraph = graph.subgraph(fixed_nodes)
     nodeList = list(primes.keys())
     
-    Adj = nx.adjacency_matrix(graph, nodelist = list(primes.keys())) #source X target
+    Adj = nx.adjacency_matrix(graph, nodelist = list(primes.keys())) # source X target
     res_node_idx = [nodeList.index(x) for x in set(nodeList)-fixed_nodes]
     res_idx_out = set(itertools.chain(*[np.where(x)[0] for x in (Adj[res_node_idx,:].toarray() != 0)]))
     res_idx_in = set(itertools.chain(*[np.where(x)[0] for x in (Adj[:,res_node_idx].toarray().T != 0)]))
     res_idx = set(res_node_idx) | res_idx_in | res_idx_out
     
-    # The residual_graph consists of edges which are not affected by perturbation
+    # The residual_graph consists of edges which are not affected by a perturbation
     residual_subgraph = graph.subgraph([nodeList[x] for x in res_idx])
     res_subgraph = nx.DiGraph()
     res_subgraph.add_edges_from([x for x in residual_subgraph.edges(data=True) if x not in list(fix_subgraph.edges(data=True))])
@@ -75,10 +75,10 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
         
         resN = set(reduced_prime.keys()) 
         res_fixN = set(residual_graph.nodes)- set(reduced_prime.keys())
-        fixN = set(fixed_graph.nodes) - res_fixN #only in the fixed_graph
+        fixN = set(fixed_graph.nodes) - res_fixN # only in the fixed_graph
         nodeList = list(primes.keys())
         
-        # make new trtuh table using reduced_prime after perturbation(s) 
+        # make new trtuh table using reduced_prime after introducing a perturbation
         def reducedprime2T(Adj, reduced_prime, node): 
             allnodes = [nodeList[x] for x in np.where(Adj[:,nodeList.index(node)].toarray().T[0]!=0)[0]]
             fixed = {x:[0 if y==-1 else y][0] for x,y in fix_dict_reduced.items() if x in allnodes}                
@@ -117,7 +117,7 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
         
 
         # compute frustrated_edge_ratio of each node
-        # Please check if regulatory relationship matirx, J, has the same sign information as A.
+        # Please check regulatory relationship matrix (J) if you used complex Boolean logic.
         # ref. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated."
         def computeF_inout(node):
             allF_dict = defaultdict(list)
