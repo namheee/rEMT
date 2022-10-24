@@ -2,10 +2,10 @@
 """
 Created on Mon Jul  4 10:44:23 2022
 
-@author: namheekim
+@author: Namhee Kim
 
-# Ref. https://gist.github.com/amroamroamro
-# The shared code was referenced to determine the best-fit surface. 
+# To determine a best-fit surface, we used numpy and scipy packages according to the reference.
+# Please refer to (Ref. https://gist.github.com/amroamroamro).
 
 """
 
