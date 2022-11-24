@@ -12,14 +12,13 @@
 **Some packages must be installed:**  
 For python:  
 > pyboolnet <https://github.com/hklarner/pyboolnet>  
-Networkx  
+NetworkX  
 NumPy  
-Pandas  
-Matplotlib  
+pandas  
+matplotlib  
 
 For R:  
-> BoolNet  
-ggplot2  
+> BoolNet    
 tidyverse  
 parallel  
 
