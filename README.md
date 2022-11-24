@@ -1,6 +1,6 @@
 # rEMT
-In this repository, we provide Python and R codes for reproducing the analyses of Boolean network model shown in the following reference paper.  
-The code was originally written by Namhee Kim and has been developed with the help of many others (Jonghoon Lee, etc.).  
++ In this repository, we provide Python and R codes for reproducing the analyses of Boolean network model shown in the following reference paper.  
++ The code was originally written by Namhee Kim and has been developed with the help of many others (Jonghoon Lee, etc.).  
 
 **Reference:**  
 
