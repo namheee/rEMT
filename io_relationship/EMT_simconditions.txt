@@ -1,0 +1,5 @@
+Sim_ID	Node	Min	Max	Alteration
+
+
+A549	TGFb	0	1	FIX
+A549	RAS	1	1	FIX

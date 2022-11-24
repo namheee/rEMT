@@ -3,7 +3,7 @@
 Created on Tue Sep  8 15:25:04 2020
 
 @ author: Namhee Kim
-@ We used a Python package ‘PyBoolNet’ for attractor simulation (https://github.com/hklarner/pyboolnet)
+@ We used a python package ‘PyBoolNet’ for attractor simulation (https://github.com/hklarner/pyboolnet)
 
 """
 

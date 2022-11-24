@@ -161,25 +161,43 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
 
     frustrated_out.loc['Fvalue',:] = np.sum(frustrated_out)
     frustrated_in.loc['Fvalue',:] = np.sum(frustrated_in)
+
+    # frustrated_out.T.to_csv(saveFilename+'_frustrated_out_naive.csv')
+    # frustrated_in.T.to_csv(saveFilename+'_frustrated_in_naive.csv')    
     
-    frustrated_out.T.to_csv(saveFilename+'_frustrated_out.csv')
-    frustrated_in.T.to_csv(saveFilename+'_frustrated_in.csv')    
     
-    
-    
-    # normalization   
-    deltaF_out = pd.DataFrame(frustrated_out.values - frustrated_out.loc[:,str(sorted(ctrl.items()))].values.reshape(-1,1), index = frustrated_out.index, columns = frustrated_out.columns)
-    deltaF_in = pd.DataFrame(frustrated_in.values - frustrated_in.loc[:,str(sorted(ctrl.items()))].values.reshape(-1,1), index = frustrated_in.index, columns = frustrated_in.columns)
-    
+    # ================================================================================================================
+    # in-degree
     ind = pd.DataFrame.from_dict(dict(graph.in_degree), orient='index', columns = ['doubleIndegree'])*2
     ind.loc['Fvalue',:] = np.sum(ind).values
+    # out-degree
+    out = pd.DataFrame.from_dict(dict(graph.out_degree), orient='index', columns = ['doubleOutdegree'])*2
+    out.loc['Fvalue',:] = np.sum(out)
+
+
+    # (1) frustration in-influence and frustration out-influence   
+    F_inI = frustrated_in.copy()
+    F_outI = frustrated_out.copy()
+    
+    F_in_ = pd.concat([ind, F_inI],axis=1,sort=True)
+    F_norm_in = pd.concat([ind, pd.DataFrame(F_in_.iloc[:,1:].values/F_in_.iloc[:,0].values.reshape(-1,1), index = F_in_.index, columns = F_inI.columns)],axis=1,sort=True)
+    F_norm_in.T.to_csv(saveFilename+'_frustrated_in.csv')
+
+
+    F_out_ = pd.concat([out, F_outI],axis=1,sort=True)
+    F_norm_out = pd.concat([out, pd.DataFrame(F_out_.iloc[:,1:].values/F_out_.iloc[:,0].values.reshape(-1,1), index = F_out_.index, columns = F_outI.columns)],axis=1,sort=True)
+    F_norm_out.T.to_csv(saveFilename+'_frustrated_out.csv')
+
+    
+    
+    # (2) normalization   
+    deltaF_in = pd.DataFrame(frustrated_in.values - frustrated_in.loc[:,str(sorted(ctrl.items()))].values.reshape(-1,1), index = frustrated_in.index, columns = frustrated_in.columns)
+    deltaF_out = pd.DataFrame(frustrated_out.values - frustrated_out.loc[:,str(sorted(ctrl.items()))].values.reshape(-1,1), index = frustrated_out.index, columns = frustrated_out.columns)
+    
     deltaF_in_ = pd.concat([ind, deltaF_in],axis=1,sort=True)
     deltaF_norm_in = pd.concat([ind, pd.DataFrame(deltaF_in_.iloc[:,1:].values/deltaF_in_.iloc[:,0].values.reshape(-1,1), index = deltaF_in_.index, columns = deltaF_in.columns)],axis=1,sort=True)
     deltaF_norm_in.T.to_csv(saveFilename+'_deltaF_normalized_in.csv')
 
-    
-    out = pd.DataFrame.from_dict(dict(graph.out_degree), orient='index', columns = ['doubleOutdegree'])*2
-    out.loc['Fvalue',:] = np.sum(out)
     deltaF_out_ = pd.concat([out, deltaF_out],axis=1,sort=True)
     deltaF_norm_out = pd.concat([out, pd.DataFrame(deltaF_out_.iloc[:,1:].values/deltaF_out_.iloc[:,0].values.reshape(-1,1), index = deltaF_out_.index, columns = deltaF_out.columns)],axis=1,sort=True)
     deltaF_norm_out.T.to_csv(saveFilename+'_deltaF_normalized_out.csv')
