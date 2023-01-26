@@ -5,7 +5,7 @@ Created on Mon Jul  4 10:44:23 2022
 @author: Namhee Kim
 
 # To determine a best-fit surface, we used numpy and scipy packages according to the reference.
-# This notebook is partly based on this reference: https://gist.github.com/amroamroamro.
+# This script is partly based on this reference: https://gist.github.com/amroamroamro.
 
 """
 
