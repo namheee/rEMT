@@ -19,7 +19,7 @@ def compute_networkStability(attrs_dict, graph, nodeList):
     Returns
     -------
     frustration_dict : Dict
-        frustration of each network state.
+        frustration value of each network state.
     network_stability : Dict
         summarize the network stability; attractor stability and frustration of a major attractor.
 
@@ -31,17 +31,20 @@ def compute_networkStability(attrs_dict, graph, nodeList):
     
     for idx, value in enumerate(attrs_dict.values()):
         # 1. attractor stability
-        # ref. Rachdi, Mustapha, et al. "Entropy as a robustness marker in genetic regulatory networks." Entropy 22.3 (2020): 260.
+        # Ref. Rachdi, Mustapha, et al. "Entropy as a robustness marker in genetic regulatory networks." Entropy 22.3 (2020): 260.
         network_stability['att_stability'] += -1*attrs_dict[idx]['perc']*np.log(attrs_dict[idx]['perc'])
         
-        # 2. frustration of network state
-        # ref. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
+        # 2. frustration of a network state
+        # Ref1. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
+		# Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
         state01 = value['attractors']
         frustration_dict[idx]['frustration'] = 0
+        #frustration_dict[idx]['frustratedE_ratio'] = 0
         for state in state01:
             state_np = [-1 if int(x) == 0 else int(x) for x in state]
             frustration_dict[idx]['perc'] = attrs_dict[idx]['perc']
             frustration_dict[idx]['frustration'] += np.sum([-1*list(graph.adj[x][y]['sign'])[0]* state_np[nodeList.index(x)]* state_np[nodeList.index(y)] for x,y in graph.edges()])
+            #frustration_dict[idx]['frustratedE_ratio'] += np.mean([0 if (list(graph.adj[x][y]['sign'])[0]* state_np[nodeList.index(x)]* state_np[nodeList.index(y)])==1 else 1 for x,y in graph.edges()])
 
         frustration_dict[idx]['frustration'] = frustration_dict[idx]['frustration'] / len(state01) #cyclic attractor
     network_stability['F_major_att'] = frustration_dict[major_atti]['frustration']

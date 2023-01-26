@@ -15,10 +15,10 @@ from pyboolnet.file_exchange import primes2bnet
 from pyboolnet.prime_implicants import create_constants, percolate, find_constants
 
 
-# ================================================================================
-# compute 'molecular state ambiguity (delta r)'
-# by calculating the ratio of frustrated_edge from (perturbed) truth table
-# ================================================================================
+# ==================================================================================================================
+# 'molecular state ambiguity (delta r)':
+# It is computed by summing the frustration influence for all nodes from (perturbed) truth table
+# ==================================================================================================================
 
 # Function for splitting graph
 def splitG(primes, fixed_nodes):
@@ -116,9 +116,10 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
             return {node:[newprime0, newprime1]}
         
 
-        # compute frustrated_edge_ratio of each node
-        # Please check regulatory relationship matrix (J) if you used complex Boolean logic.
-        # ref. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated."
+        # compute frustration for each node
+        # Please check regulatory relationship matrix (J) when complex Boolean logics are used.
+        # Ref1. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
+		# Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
         def computeF_inout(node):
             allF_dict = defaultdict(list)
             if node in resN:
@@ -146,7 +147,7 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
                     
             return allF_dict
 
-        # compute frustrated_edge_ratio
+        # compute frustration
         indvTable = pd.DataFrame()
         for node in nodeList:
             tv = computeF_inout(node)
