@@ -119,7 +119,7 @@ def computeFusingT_updated(allperturbs, fix_dict, ctrl, primes, model_file, save
         # compute frustration for each node
         # Please check regulatory relationship matrix (J) when complex Boolean logics are used.
         # Ref1. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
-		# Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
+        # Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
         def computeF_inout(node):
             allF_dict = defaultdict(list)
             if node in resN:

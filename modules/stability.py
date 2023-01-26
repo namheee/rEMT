@@ -36,7 +36,7 @@ def compute_networkStability(attrs_dict, graph, nodeList):
         
         # 2. frustration of a network state
         # Ref1. Tripathi, Shubham, David A. Kessler, and Herbert Levine. "Biological networks regulating cell fate choice are minimally frustrated." Physical Review Letters 125.8 (2020): 088101.
-		# Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
+        # Ref2. Font-Clos, Francesc, Stefano Zapperi, and Caterina AM La Porta. "Topography of epithelial–mesenchymal plasticity." Proceedings of the National Academy of Sciences 115.23 (2018): 5902-5907.
         state01 = value['attractors']
         frustration_dict[idx]['frustration'] = 0
         #frustration_dict[idx]['frustratedE_ratio'] = 0
