@@ -3,7 +3,8 @@
 + The code was originally written by Namhee Kim and has been developed with the help of many others (Jonghoon Lee, etc.).  
 
 **Reference:**  
-
+A Cell-Fate Reprogramming Strategy Reverses Epithelial-to-Mesenchymal Transition of Lung Cancer Cells While Avoiding Hybrid States
+https://doi.org/10.1158/0008-5472.CAN-22-1559
 
 ## 1. Requirements
 
