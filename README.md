@@ -2,28 +2,28 @@
 + In this repository, we provide Python and R codes for reproducing the analyses of Boolean network model shown in the following reference paper.  
 + The code was originally written by Namhee Kim and has been developed with the help of many others (Jonghoon Lee, etc.).  
 
-**Reference paper:**  A Cell-Fate Reprogramming Strategy Reverses Epithelial-to-Mesenchymal Transition of Lung Cancer Cells While Avoiding Hybrid States
+  **Reference paper:**  A Cell-Fate Reprogramming Strategy Reverses Epithelial-to-Mesenchymal Transition of Lung Cancer Cells While Avoiding Hybrid States
 https://doi.org/10.1158/0008-5472.CAN-22-1559
 
-## 1. Requirements
+## Requirements
 
 + The code is developed using Python 3.7.x and R 4.2.x
 + Some packages must be installed:
   
-For python:  
-> pyboolnet <https://github.com/hklarner/pyboolnet>  
-NetworkX  
-NumPy  
-pandas  
-Matplotlib  
+  For python:  
+  > pyboolnet <https://github.com/hklarner/pyboolnet>  
+  NetworkX  
+  NumPy  
+  pandas  
+  Matplotlib  
 
-For R:  
-> BoolNet    
-Tidyverse  
-parallel
+  For R:  
+  > BoolNet    
+  Tidyverse  
+  parallel
 
 
-## 2. Implementation
+## Implementation
 
 + Import networks in BoolNet format (from the `network` directory)  
 + A simple toy network example is provided.  
@@ -33,7 +33,7 @@ parallel
 + 3~8-Jupyter Notebook files : Note that these files reproduce our results shown in the main figures.  
 
 
-## 3. Notes
+## Notes
 
 + Main functions are in the `modules` directory.  
 + All outputs (e.g., simulation results) are already provided in the `result` directory.  
