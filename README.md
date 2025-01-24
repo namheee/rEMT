@@ -10,8 +10,8 @@ https://doi.org/10.1158/0008-5472.CAN-22-1559
 + The code is developed using Python 3.7.x and R 4.2.x
 + Some packages must be installed:
   
-  pyboolnet <https://github.com/hklarner/pyboolnet>  
-  BoolNet 	10.32614/CRAN.package.BoolNet
+  pyboolnet: <https://github.com/hklarner/pyboolnet>  
+  BoolNet: 10.32614/CRAN.package.BoolNet
 
 
 ## Implementation
