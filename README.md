@@ -9,18 +9,8 @@ https://doi.org/10.1158/0008-5472.CAN-22-1559
 
 + The code is developed using Python 3.7.x and R 4.2.x
 + Some packages must be installed:
-  
-  For python:  
-  > pyboolnet <https://github.com/hklarner/pyboolnet>  
-  NetworkX  
-  NumPy  
-  pandas  
-  Matplotlib  
-
-  For R:  
-  > BoolNet    
-  Tidyverse  
-  parallel
+  For python: pyboolnet <https://github.com/hklarner/pyboolnet>  
+  For R: BoolNet
 
 
 ## Implementation
