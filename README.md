@@ -11,7 +11,7 @@ https://doi.org/10.1158/0008-5472.CAN-22-1559
 + Some packages must be installed:
   
   For python: pyboolnet <https://github.com/hklarner/pyboolnet>  
-  For R: BoolNet
+  For R: BoolNet 	<10.32614/CRAN.package.BoolNet>
 
 
 ## Implementation
